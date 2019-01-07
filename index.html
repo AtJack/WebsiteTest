@@ -1,8 +1,39 @@
 <html>
 <head>
-<title>Hier steht der Titel der Homepage</title>
+<title>Fahrradzählung Köln</title>
+ 
+   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Jahr', 'Jahressumme'],
+          ['2009',  1615262],
+          ['2010',  1454993],
+          ['2011',  1599993],
+          ['2012',  1618289],
+          ['2013',  1457336],
+          ['2014',  1706039],
+          ['2015',  1737091]
+        ]);
+
+        var options = {
+          title: 'Company Performance',
+          curveType: 'function',
+          legend: { position: 'bottom' }
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+        chart.draw(data, options);
+      }
+    </script>
+
+ 
 </head>
 <body>
-Meine erste Homepage. Hier möchte ich euch etwas über mich, meine Freunde und meine Hobbies erzählen.
+<div id="curve_chart" style="width: 900px; height: 500px"></div>
 </body>
 </html>
